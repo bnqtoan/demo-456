@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa Học Tối Ưu Công Việc Bằng Tự Động Hóa Thông Minh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles and animations */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFFFF;
+            color: #4B5563;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #1E3A8A 100%);
+        }
+        .cta-gradient {
+            background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 100%);
+        }
+        .btn-primary {
+            background-color: #F97316;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #F97316;
+            color: #F97316;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #F97316;
+            color: white;
+        }
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-card {
+            background-color: #f8fafc;
+        }
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px; /* Adjust as needed */
+        }
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        /* Scroll-based animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse-animation {
+            animation: pulse 2.5s infinite;
+        }
+        /* Carousel styles */
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        @media (min-width: 768px) {
+            .carousel-slide {
+                min-width: 50%;
+            }
+        }
+        @media (min-width: 1024px) {
+            .carousel-slide {
+                min-width: 33.3333%;
+            }
+        }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #D1D5DB;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-dot.active {
+            background-color: #1E3A8A;
+        }
+
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-[#1E3A8A]">A Realistic Dreamer</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#benefits" class="text-gray-600 hover:text-[#1E3A8A] transition">Lợi Ích</a>
+                <a href="#content" class="text-gray-600 hover:text-[#1E3A8A] transition">Nội Dung</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-[#1E3A8A] transition">Học Viên</a>
+                <a href="#faq" class="text-gray-600 hover:text-[#1E3A8A] transition">FAQs</a>
+            </div>
+            <a href="#cta" class="btn-primary text-white font-bold py-2 px-6 rounded-full">
+                Đăng Ký Ngay
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden bg-gradient-to-br from-blue-600 to-blue-900">
+            <div class="relative z-10 p-6">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 reveal">
+                    Tối Ưu Công Việc Cá Nhân & Công Ty Với Tự Động Hóa Thông Minh
+                </h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 reveal" style="transition-delay: 0.2s;">
+                    Học cách tự động hóa quy trình, tiết kiệm thời gian, và tăng hiệu suất lên đến 300%.
+                </p>
+                <a href="#cta" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg reveal" style="transition-delay: 0.4s;">
+                    Tham Gia Khóa Học
+                </a>
+            </div>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+                <svg class="w-8 h-8 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#1E3A8A]">Tại Sao Nên Tham Gia Khóa Học?</h2>
+                    <p class="mt-4 text-lg text-gray-600">Khám phá những lợi ích vượt trội mà khóa học mang lại.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Benefit Card 1 -->
+                    <div class="benefit-card bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300 reveal">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#F97316] text-white mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Tiết Kiệm Thời Gian</h3>
+                        <p>Giải phóng hàng giờ làm việc thủ công mỗi tuần với các quy trình tự động hóa thông minh.</p>
+                    </div>
+                    <!-- Benefit Card 2 -->
+                    <div class="benefit-card bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300 reveal" style="transition-delay: 0.2s;">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#10B981] text-white mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Tăng Hiệu Suất 300%</h3>
+                        <p>Tối ưu hóa công việc cá nhân và đội nhóm, đạt được kết quả vượt trội mà không cần làm thêm giờ.</p>
+                    </div>
+                    <!-- Benefit Card 3 -->
+                    <div class="benefit-card bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300 reveal" style="transition-delay: 0.4s;">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#2563EB] text-white mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Ứng Dụng AI Thực Tiễn</h3>
+                        <p>Nắm vững các công cụ AI và tự động hóa hàng đầu để giải quyết các vấn đề công việc hàng ngày.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Content Section -->
+        <section id="content" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#1E3A8A]">Nội Dung Khóa Học</h2>
+                    <p class="mt-4 text-lg text-gray-600">Một lộ trình học tập bài bản, từ cơ bản đến nâng cao.</p>
+                </div>
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="hidden md:block absolute border-l-2 border-[#1E3A8A] h-full left-1/2 -translate-x-1/2"></div>
+                    
+                    <!-- Module 1 -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline reveal">
+                        <div class="hidden md:block w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#1E3A8A] shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                        </div>
+                        <div class="order-1 bg-blue-100 rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-gray-800 text-xl">Tự động hóa tạo Slide PowerPoint</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-600 text-opacity-100">Học cách tạo hàng loạt slide thuyết trình chuyên nghiệp chỉ trong vài phút.</p>
+                        </div>
+                    </div>
+
+                    <!-- Module 2 -->
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline reveal">
+                        <div class="hidden md:block w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#1E3A8A] shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+                        </div>
+                        <div class="order-1 bg-orange-100 rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-gray-800 text-xl">Tạo Báo Cáo Thông Minh</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-600 text-opacity-100">Tự động tổng hợp dữ liệu và tạo báo cáo trực quan, chính xác.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Module 3 -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline reveal">
+                        <div class="hidden md:block w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#1E3A8A] shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                        </div>
+                        <div class="order-1 bg-green-100 rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-gray-800 text-xl">Gửi Email Tự Động & Cá Nhân Hóa</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-600 text-opacity-100">Thiết lập chiến dịch email marketing hoặc chăm sóc khách hàng hoàn toàn tự động.</p>
+                        </div>
+                    </div>
+
+                     <!-- Module 4 -->
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline reveal">
+                        <div class="hidden md:block w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#1E3A8A] shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+                        </div>
+                        <div class="order-1 bg-purple-100 rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-gray-800 text-xl">Tích Hợp AI vào Quy Trình</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-600 text-opacity-100">Khám phá cách sử dụng AI để phân tích, dự báo và đưa ra quyết định thông minh hơn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#1E3A8A]">Học Viên Nói Gì Về Chúng Tôi?</h2>
+                    <p class="mt-4 text-lg text-gray-600">Niềm tin và sự hài lòng của học viên là minh chứng tốt nhất.</p>
+                </div>
+                <div class="carousel-container reveal">
+                    <div class="carousel-track">
+                        <!-- Testimonial Slide 1 -->
+                        <div class="carousel-slide p-4">
+                            <div class="testimonial-card border border-gray-200 rounded-xl p-8 h-full flex flex-col justify-center">
+                                <p class="text-gray-600 mb-6 italic">"Khóa học này thực sự đã thay đổi cách tôi làm việc. Tôi đã tiết kiệm được ít nhất 10 giờ mỗi tuần. Cảm ơn đội ngũ rất nhiều!"</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/F97316/FFFFFF?text=AN" alt="Avatar" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-gray-800">Nguyễn Văn An</p>
+                                        <p class="text-sm text-gray-500">Trưởng phòng Marketing</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial Slide 2 -->
+                        <div class="carousel-slide p-4">
+                            <div class="testimonial-card border border-gray-200 rounded-xl p-8 h-full flex flex-col justify-center">
+                                <p class="text-gray-600 mb-6 italic">"Nội dung rất thực tế và dễ áp dụng. Các công cụ được giới thiệu trong khóa học đã giúp team của tôi tăng năng suất đáng kể."</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/10B981/FFFFFF?text=BH" alt="Avatar" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-gray-800">Trần Thị Bích Hằng</p>
+                                        <p class="text-sm text-gray-500">Giám đốc Dự án</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial Slide 3 -->
+                        <div class="carousel-slide p-4">
+                            <div class="testimonial-card border border-gray-200 rounded-xl p-8 h-full flex flex-col justify-center">
+                                <p class="text-gray-600 mb-6 italic">"Một khóa học phải tham gia cho bất kỳ ai muốn đi trước trong thời đại số. Kiến thức về AI và tự động hóa rất giá trị."</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/2563EB/FFFFFF?text=CL" alt="Avatar" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-gray-800">Lê Minh Cường</p>
+                                        <p class="text-sm text-gray-500">Chuyên viên Phân tích Dữ liệu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Add more slides for seamless looping -->
+                        <div class="carousel-slide p-4">
+                            <div class="testimonial-card border border-gray-200 rounded-xl p-8 h-full flex flex-col justify-center">
+                                <p class="text-gray-600 mb-6 italic">"Khóa học này thực sự đã thay đổi cách tôi làm việc. Tôi đã tiết kiệm được ít nhất 10 giờ mỗi tuần. Cảm ơn đội ngũ rất nhiều!"</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/F97316/FFFFFF?text=AN" alt="Avatar" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-gray-800">Nguyễn Văn An</p>
+                                        <p class="text-sm text-gray-500">Trưởng phòng Marketing</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots"></div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section id="faq" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#1E3A8A]">Câu Hỏi Thường Gặp</h2>
+                    <p class="mt-4 text-lg text-gray-600">Giải đáp những thắc mắc phổ biến nhất của bạn.</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item border-b border-gray-200 py-4 reveal">
+                        <div class="faq-question flex justify-between items-center cursor-pointer">
+                            <h3 class="text-lg font-semibold text-gray-800">Khóa học này kéo dài bao lâu?</h3>
+                            <div class="faq-icon text-[#1E3A8A] text-2xl">+</div>
+                        </div>
+                        <div class="faq-answer mt-2 text-gray-600">
+                            <p>Khóa học được thiết kế để bạn có thể hoàn thành trong vòng 4 tuần, với khoảng 3-5 giờ học mỗi tuần. Tuy nhiên, bạn có quyền truy cập vĩnh viễn vào nội dung nên có thể học theo tốc độ của riêng mình.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item border-b border-gray-200 py-4 reveal">
+                        <div class="faq-question flex justify-between items-center cursor-pointer">
+                            <h3 class="text-lg font-semibold text-gray-800">Tôi có cần kiến thức lập trình không?</h3>
+                            <div class="faq-icon text-[#1E3A8A] text-2xl">+</div>
+                        </div>
+                        <div class="faq-answer mt-2 text-gray-600">
+                            <p>Không. Khóa học được thiết kế cho cả những người không có nền tảng kỹ thuật. Chúng tôi sẽ hướng dẫn bạn sử dụng các công cụ no-code/low-code trực quan để xây dựng các luồng tự động hóa.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item border-b border-gray-200 py-4 reveal">
+                        <div class="faq-question flex justify-between items-center cursor-pointer">
+                            <h3 class="text-lg font-semibold text-gray-800">Tôi sẽ nhận được gì sau khi hoàn thành khóa học?</h3>
+                            <div class="faq-icon text-[#1E3A8A] text-2xl">+</div>
+                        </div>
+                        <div class="faq-answer mt-2 text-gray-600">
+                            <p>Sau khi hoàn thành, bạn sẽ nhận được chứng chỉ, quyền truy cập vào cộng đồng học viên độc quyền, và bộ tài nguyên gồm các mẫu tự động hóa sẵn có để áp dụng ngay vào công việc.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item border-b border-gray-200 py-4 reveal">
+                        <div class="faq-question flex justify-between items-center cursor-pointer">
+                            <h3 class="text-lg font-semibold text-gray-800">Có chính sách hoàn tiền không?</h3>
+                            <div class="faq-icon text-[#1E3A8A] text-2xl">+</div>
+                        </div>
+                        <div class="faq-answer mt-2 text-gray-600">
+                            <p>Có. Chúng tôi cam kết chất lượng và có chính sách hoàn tiền trong vòng 14 ngày nếu bạn cảm thấy khóa học không phù hợp, không cần lý do.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section id="cta" class="py-20 cta-gradient text-white">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Bắt Đầu Tối Ưu Hóa Công Việc Ngay Hôm Nay!</h2>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">Đừng để công việc thủ công làm bạn chậm lại. Hãy tham gia khóa học để làm chủ tương lai của bạn.</p>
+                <div class="flex justify-center items-center space-x-4">
+                    <a href="#" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg pulse-animation">
+                        Đăng Ký Ngay
+                    </a>
+                    <a href="#content" class="btn-secondary bg-white text-[#1E3A8A] font-bold py-4 px-10 rounded-full text-lg">
+                        Xem Nội Dung
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1E3A8A] text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">A Realistic Dreamer</h3>
+                    <p class="text-gray-300">Tối Ưu Hóa Tương Lai.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liên kết nhanh</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#benefits" class="text-gray-300 hover:text-white transition">Lợi Ích</a></li>
+                        <li><a href="#content" class="text-gray-300 hover:text-white transition">Nội Dung</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Điều khoản dịch vụ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liên hệ</h3>
+                    <p class="text-gray-300">Email: contact@arealisticdreamer.com</p>
+                    <p class="text-gray-300">Phone: (+84) 123 456 789</p>
+                    <div class="flex justify-center md:justify-start space-x-4 mt-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.47 1.688h2.94v-8.59H3.535v8.59z" clip-rule="evenodd" /></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 A Realistic Dreamer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // 1. Scroll-based Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+
+        // 2. FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('open');
+                    otherItem.querySelector('.faq-icon').textContent = '+';
+                });
+
+                // Open the clicked item if it was closed
+                if (!isOpen) {
+                    item.classList.add('open');
+                    item.querySelector('.faq-icon').textContent = '-';
+                }
+            });
+        });
+
+        // 3. Testimonial Carousel
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const dotsNav = document.querySelector('.carousel-dots');
+        let slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
+        let currentIndex = 0;
+        let intervalId;
+
+        // This is a simplified carousel for demonstration. A more robust solution might be needed for production.
+        // For simplicity, we'll do a basic auto-slide.
+        
+        const totalSlides = slides.length;
+        if (totalSlides === 0) return;
+        
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateCarousel();
+                resetInterval();
+            });
+            dotsNav.appendChild(dot);
+        }
+        
+        const dots = Array.from(dotsNav.children);
+
+        const updateCarousel = () => {
+            if(slides.length > 0) {
+              track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+              dots.forEach((dot, index) => {
+                  dot.classList.toggle('active', index === currentIndex);
+              });
+            }
+        };
+
+        const nextSlide = () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        };
+
+        const startInterval = () => {
+            intervalId = setInterval(nextSlide, 5000);
+        };
+
+        const resetInterval = () => {
+            clearInterval(intervalId);
+            startInterval();
+        };
+
+        // Pause on hover
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => clearInterval(intervalId));
+        carouselContainer.addEventListener('mouseleave', startInterval);
+
+        // Initial setup
+        startInterval();
+        window.addEventListener('resize', () => {
+             // Recalculate slide width on resize
+             if(slides.length > 0) {
+                slideWidth = slides[0].getBoundingClientRect().width;
+                updateCarousel();
+             }
+        });
+
+
+    });
+    </script>
+</body>
+</html>
